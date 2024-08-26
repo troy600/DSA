@@ -9,7 +9,7 @@ public:
         dsas = name;
         ccsist = lastname;
     }
-    void display() {
+    void kms() {
         std::cout << "welcome. Firstname: " << dsas << " lastname: " << ccsist;
         //extract the info;
         std::string studentinfo = "echo 'firstname: " + dsas + " lastname: " + ccsist + "' >> studentinfo.txt";
@@ -35,6 +35,6 @@ int main(void){
 
     bsdsa object(first, last);
 
-    object.display();
+    object.kms();
     return 200;
 }
