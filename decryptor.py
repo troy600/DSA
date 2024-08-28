@@ -1,6 +1,7 @@
 from cryptography.fernet import Fernet
 import os
 from colorama import Fore as color
+import array
 
 
 
