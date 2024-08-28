@@ -8,7 +8,7 @@ from colorama import Fore as color
 import argparse
 from pathlib import Path
 
-parser = argparse.ArgumentParser(description="simple ass encryption tool")
+parser = argparse.ArgumentParser(description="simple ass encryption tool\n This project Created by Cyrus Troy.")
 
 parser.add_argument("--encrypt", type=str, help="filename to encrypt")
 parser.add_argument("--decrypt", type=str, help="decryption method")
@@ -19,7 +19,7 @@ args = parser.parse_args()
 home = Path.home()
 
 if args.keygen == True:
-    if os.path.exists(f"{home}/.config/keyfile"):
+    if os.path.exists(f"{home}/.config/keyfile.key"):
         print(f"{color.RED} are you sure you want to create a new key? (deleting the old key in process) y/n")
         yn = input("\n>>")
         if yn == "y":
@@ -44,7 +44,7 @@ with open(f"{home}/.config/keyfile.key", "rb") as thekey:
 fernet = Fernet(key=this)
 class files_encrypt:
     def __init__(self, encrypt):
-        if os.path.isfile(f"encrypt") == False:
+        if os.path.isfile(f"encrypt") == None:
             print(f"{color.RED} file didn't exists exiting safely")
             exit
         with open(encrypt, "rb") as toread:
@@ -57,17 +57,22 @@ class files_encrypt:
             toencrypt.write(cs)
             os.remove(encrypt)
             return print(f"{color.RED} encrypted successfully >:)")
+            exit
 
 class file_decrypt:
     def __init__(self, decrypt):
         with open(decrypt, 
         "rb") as toread:
+            print(f"{color.CYAN}reading the file...")
             dsa = toread.read()
             decrypting = fernet.decrypt(dsa)
             noextensionencryptedfile = deletext(decrypt)
         with open (noextensionencryptedfile, "wb") as todecrypt:
+            print(f"{color.RED} decrypting the file...")
             todecrypt.write(decrypting)
             os.remove(decrypt)
+            print("sucess!!")
+            exit
 
 def deletext(filenames):
     name, extension = os.path.splitext(filenames)
