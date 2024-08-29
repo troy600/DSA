@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
-#from BSDSA
+#from and for BSDSA Students ;)
 
 from cryptography.fernet import Fernet
 import os
@@ -17,6 +17,13 @@ parser.add_argument("--keygen", action="store_true", help="generate a ney key st
 args = parser.parse_args()
 
 home = Path.home()
+
+if args.encrypt == None:
+    if args.decrypt == None:
+        os.system(f"{__file__} --help")
+elif args.decrypt == None:
+    if args.encrypt == None:
+        os.system(f"{__file__} --help")
 
 if args.keygen == True:
     if os.path.exists(f"{home}/.config/keyfile.key"):
@@ -44,8 +51,8 @@ with open(f"{home}/.config/keyfile.key", "rb") as thekey:
 fernet = Fernet(key=this)
 class files_encrypt:
     def __init__(self, encrypt):
-        if os.path.isfile(f"encrypt") == None:
-            print(f"{color.RED} file didn't exists exiting safely")
+        if os.path.exists(f"encrypt") == False:
+            print(f"{color.RED} file didn't exists. exiting safely")
             exit
         with open(encrypt, "rb") as toread:
             dsafun = toread.read()
@@ -57,7 +64,6 @@ class files_encrypt:
             toencrypt.write(cs)
             os.remove(encrypt)
             return print(f"{color.RED} encrypted successfully >:)")
-            exit
 
 class file_decrypt:
     def __init__(self, decrypt):
@@ -85,9 +91,10 @@ def deletext(filenames):
 #files_encrypt(f"{args.encrypt}")
 if args.decrypt != None:
     file_decrypt(f"{args.decrypt}")
+    exit
 
 if args.encrypt != None:
     files_encrypt(f"{args.encrypt}")
-
-
+    exit
 true = True
+#os.system(f"{__file__} --help")
