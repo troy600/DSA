@@ -51,9 +51,9 @@ with open(f"{home}/.config/keyfile.key", "rb") as thekey:
 fernet = Fernet(key=this)
 class files_encrypt:
     def __init__(self, encrypt):
-        if os.path.exists(f"encrypt") == False:
-            print(f"{color.RED} file didn't exists. exiting safely")
-            exit
+#        if os.path.exists(f"encrypt") == False:
+#            print(f"{color.RED} file didn't exists. exiting safely")
+#            exit
         with open(encrypt, "rb") as toread:
             dsafun = toread.read()
             cs = fernet.encrypt(dsafun)
@@ -67,8 +67,7 @@ class files_encrypt:
 
 class file_decrypt:
     def __init__(self, decrypt):
-        with open(decrypt, 
-        "rb") as toread:
+        with open(decrypt, "rb") as toread:
             print(f"{color.CYAN}reading the file...")
             dsa = toread.read()
             decrypting = fernet.decrypt(dsa)
