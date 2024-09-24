@@ -18,7 +18,7 @@ public:
         if (file.is_open()) {
             file << "Name: " << ufirst << "Lastname" << ulast << "MiddleName: " << umiddle << "age: " << uage;
             file.close();
-        }else {
+        } else {
             cout << "unable to open file";
             }
         
