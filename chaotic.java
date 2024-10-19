@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class chaoticjava {
-    public static void main(String[] args) {
+    public static void main(String[] ar) {
 	System.out.println("hello world Whats your age? \n >>");
 	Scanner scanner = new Scanner(System.in);
 
