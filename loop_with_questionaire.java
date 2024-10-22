@@ -13,18 +13,18 @@
 
 import java.util.Scanner;
 
-public class loop_with_questionaire {
+class loop_with_questionaire {
 
-    public loop_with_questionaire() {
-        boolean terminator = true;
+    private static int questionopperand() {
+        boolean is_wrong = true;
         int user_answer;
         int answer = 9981 * 712 / 89  + 14;
-        System.out.println(answer + " what is 9981 * 712 / 89 + 14??");
+        System.out.println(" what is 9981 * 712 / 89 + 14??");
         Scanner user_input = new Scanner(System.in);
         user_answer = user_input.nextInt();
-        while (terminator) {
+        while (is_wrong) {
             if (user_answer != answer) {
-                System.out.println("is wrong try again :(.");
+                System.out.println("wrong answer!");
                 user_answer = user_input.nextInt();
             } else {
                 System.out.println("hooray! correct");
@@ -33,11 +33,11 @@ public class loop_with_questionaire {
                 System.exit(0);
             }
         }
+        return 0;
     }
 
-
     public static void main(String[] args) {
-        new loop_with_questionaire();
+        questionopperand();
         System.exit(0);
     }
 }
