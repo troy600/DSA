@@ -29,7 +29,7 @@ public class loop_with_questionaire {
             } else {
                 System.out.println("hooray! correct");
                 user_input.close();
-                terminator = false;
+                is_wrong = false;
                 System.exit(0);
             }
         }
