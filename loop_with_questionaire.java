@@ -13,7 +13,7 @@
 
 import java.util.Scanner;
 
-class loop_with_questionaire {
+public class loop_with_questionaire {
 
     private static int questionopperand() {
         boolean is_wrong = true;
