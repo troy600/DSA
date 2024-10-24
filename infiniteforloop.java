@@ -1,6 +1,10 @@
-import java.util.*;
+import java.util.Calendar;
+import java.util.Scanner;
 
 public class infiniteforloop {
+    private static int pis() {
+        return 0;
+    }
     public static void main(String[] args) {
         System.out.println("hello world");
         int thisint;
@@ -8,13 +12,14 @@ public class infiniteforloop {
         int thisintt = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.println(Calendar.DATE);
-        String dsaString = "Stressss";
 
         for (thisint = 0; thisint != 0; thisint++) {
             thisintt++;
             thisintttt++;
             int newint = thisint * thisintt * thisint;
             System.out.println(newint);
+            scanner.close();
+            System.exit(pis());
         }
     }
 }
