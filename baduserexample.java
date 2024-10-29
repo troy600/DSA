@@ -38,8 +38,21 @@ public class baduserexample {
             System.err.println(reason);   
         }
     }
-    public static double ThePowerOfTheNumberThatTheUserInsertedToSolveHisOrHerProblem(int pow, int pow2) {
-        double thas = Math.pow(pow, pow2);
+    public static double ThePowerOfTheNumberThatTheUserInsertedToSolveHisOrHerProblem(double pow) {
+        double thas = Math.pow(pow, 2);
         return thas;
+    }
+    public static int ThePowerOfTheNumberThatTheUserInsertedToSolveHisOrHerProblemPlusTheNumberTheUserTypedtoSolveThePow2AndtheSecondNumber(double first, int second) {
+        int answer = (int) (first + second);
+        return answer;
+    }
+    public static int TheSecondNumberTypedByTheUserToAddthePwerOfthenumberThattheUserInsertedToSolveHisOrHerproblem(int a) {
+        return a;
+    }
+    public static void IfTheUserhasSucessfullytypedTheFirstNumberAndTheSecondNumberThenThisWillBeCallToDisplayTheResultAndExitsTheprogram(double answer, double pow, int num2) {
+        System.out.println("The Answer of " + pow + " pow2 + " + num2 +"  is "+ answer );
+    }
+    public static double TheFirstNumbertypedByTheUserToSolveHisOrherProblem(double a) {
+        return a;
     }
 }
