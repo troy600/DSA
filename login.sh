@@ -2,13 +2,12 @@
 
 login=$(echo "Exit|Shutdown|Restart|Suspend|Terminal" | rofi -dmenu -no-X -sep "|"  -p "Want to shudown? or Restart?" -window-title "Power Menu")
 
-
 dmenu() {
-    echo "$1" | rofi -p "Are you sure about that?" -dmenu -no-X -window-title "shutdown" -sep "|"
+    echo "$1" | rofi -p "Are you sure about that?" -dmenu -no-X -window-title "login" -sep "|"
 }
 
 shutdown_prompt() {
-    dmenu "$(echo "Yes|No")"
+    dmenu 'Yes|No'
 }
 
 Shutdown() {
@@ -24,18 +23,37 @@ Shutdown() {
         esac
 }
 
+restart() {
+    opts=$(dmenu 'Yes|No')
+    case "$opts" in
+        "Yes")
+            echo "Restart now"
+            ;;
+        "No")
+            rofi -e "canceled"
+            return 1
+            ;;
+    esac
+
+}
+
+
 
 case "$login" in
     "Exit")
         echo "Exiting"  
+        exit
         ;;
     "Shutdown")
         Shutdown
         ;;
     "Restart")
-        echo "Restarting"
+        restart
         ;;
-    *)
-        echo "does nothing"
+    "Terminal")
+        rofi-sensible-terminal
+        ;;
+    "Suspend")
+        systemctl suspend
         ;;
 esac
